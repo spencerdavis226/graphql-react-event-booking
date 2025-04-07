@@ -18,6 +18,11 @@ const eventSchema = new Schema({
     type: Date,
     required: true,
   },
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 module.exports = mongoose.model('Event', eventSchema);
+// Mongoose uses the model name ('Event') to create or use the 'events' collection in the database. That’s why you see 'events' in MongoDB—Mongoose automatically pluralizes and lowercases your model name.
